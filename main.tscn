@@ -1,14 +1,89 @@
 [gd_scene load_steps=2 format=3 uid="uid://ooij8sq2730b"]
 
-[ext_resource type="Script" uid="uid://iot2a5s1p37m" path="res://scripts/function_calling.gd" id="1_ig7tw"]
+[ext_resource type="Script" path="res://scripts/demo_gui.gd" id="1_demo"]
 
-[node name="Control" type="Control"]
+[node name="DemoGUI" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_demo")
 
-[node name="Ollama" type="Node" parent="."]
-script = ExtResource("1_ig7tw")
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Header" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+text = "Godot + Gemma + Ollama Demo"
+theme_override_font_sizes/font_size = 22
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ModelLabel" type="Label" parent="MarginContainer/VBoxContainer/Header"]
+layout_mode = 2
+text = "Model:"
+
+[node name="ModelSelector" type="OptionButton" parent="MarginContainer/VBoxContainer/Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(220, 0)
+layout_mode = 2
+
+[node name="ConversationPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ConversationDisplay" type="RichTextLabel" parent="MarginContainer/VBoxContainer/ConversationPanel"]
+unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+scroll_following = true
+selection_enabled = true
+
+[node name="InputRow" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="PromptInput" type="LineEdit" parent="MarginContainer/VBoxContainer/InputRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Type your message here..."
+
+[node name="SendButton" type="Button" parent="MarginContainer/VBoxContainer/InputRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Send"
+
+[node name="ClearButton" type="Button" parent="MarginContainer/VBoxContainer/InputRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Clear"
+
+[node name="StatusLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.6, 0.6, 0.6, 1)
+text = "Ready"
