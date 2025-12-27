@@ -1,6 +1,6 @@
-# Godot + Gemma + Ollama Template
+# Godot + Gemma + Ollama Demo
 
-A minimal template for running **Google's Gemma models** in Godot 4.5+ via [Ollama](https://ollama.ai). Features both simple text generation with **Gemma3** and function/tool calling with **Functiongemma**.
+A minimal demo for running **Google's Gemma models** in Godot 4.5+ via [Ollama](https://ollama.ai). Features both simple text generation with **Gemma3** and function/tool calling with **Functiongemma**.
 
 ## Features
 
