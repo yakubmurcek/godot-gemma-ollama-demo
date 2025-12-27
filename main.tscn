@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ooij8sq2730b"]
 
-[ext_resource type="Script" uid="uid://b3grofubtq3th" path="res://ollama.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://b3grofubtq3th" path="res://scripts/gemma.gd" id="1_ig7tw"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
